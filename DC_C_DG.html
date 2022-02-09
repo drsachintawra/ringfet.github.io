@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+td {
+    background-color: "yellow";
+}
+h1 {
+    background-color: #00b33c;
+}
+h2 {
+    background-color: skyblue;
+}
+h3 {
+    background-color: pink;
+}
+
+</style>
+</head>
+
+<link href=
+"http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+rel="stylesheet">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" src=
+"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<body>
+<center>
+    <h1><----------GRAPH OF RING_FET-----------></h1>
+
+    <h3><font color = "blue"><i> *********simulation - Drain Current Vs. Gate Voltage  ********** </i></font> </h3></center>
+
+<p>
+  <td valign="top">
+    <h2>Input value:</h2>
+
+      <form method=post action="" enctype="multipart/form-data">
+        <table>
+          {% for field in form %}
+            <tr><td> &nbsp; <font color = "red">{{ field.name }}</font> => &ensp; </h4></td>  &nbsp;
+                <td>{{ field(size=20) }}</td>
+                <td> &ensp; <font color = "green"> {{field.label}}</font> </td>
+                <td>{% if field.errors %}
+                  <ul class=errors>
+                  {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}</ul>
+                {% endif %}</td></tr>
+          {% endfor %}
+        </table>
+        <p><input type="submit" value="Compute">
+    </form></p>
+  </td>
+
+
+
+<p><center>
+{% if r62 != None %}
+<img src="{{ r62 }}" width="400">
+    {% endif %}</center>
+
+<center>    <form action="DC_C_B.html">
+<input type="submit" value="comparison with Bulk MOSFET">
+</form></center>
+<center>    <form action="DC_comp.html">
+<input type="submit" value="comparison with Bulk MOSFET & Double gate RingFET">
+</form></center>
+<center><form action="DC.html">
+<input type="submit" value="Return to main menu of Drain current ">
+</form></center>
+ <center>   <form action="NSRF.html">
+<input type="submit" value="Back to Nano-Scale RingFET">
+ </form></center>
+ <center>   <form action="index.html">
+<input type="submit" value="Back to the homepage">
+ </form></center>
+
+</body>
+</html>
